@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0" style="background: slategray">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th rowspan="2"><button onclick="doi()">Convert</button></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="gt"></td>
+        <td>
+            <select id="CotA">
+                <option value="VN">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="CotB">
+                <option value="VN">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="4" style="width: 100%">
+            <textarea id="kq"></textarea>
+        </th>
+    </tr>
+    <script>
+        function doi() {
+            let input_dauvao = document.getElementById("gt").value;
+            let SL_cota = document.getElementById("CotA").value;
+            let SL_cotb = document.getElementById("CotB").value;
+            if (SL_cota == SL_cotb) {
+                document.getElementById("kq").innerHTML = input_dauvao;
+            }
+            if (SL_cota == "VN" && SL_cotb == "USD") {
+                document.getElementById("kq").innerHTML = input_dauvao / 23000;
+            }
+            if (SL_cota == "USD" && SL_cotb == "VN") {
+                document.getElementById("kq").innerHTML = input_dauvao / 23000;
+            }
+        }
+    </script>
+</table>
+</body>
+</html>
